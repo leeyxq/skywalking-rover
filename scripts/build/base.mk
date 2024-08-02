@@ -65,4 +65,4 @@ container-command: build-base-container
 		--env CFLAGS="-fdebug-prefix-map=/skywalking-rover=." \
 		--env HOME="/skywalking-rover" \
 		"${CONTAINER_COMMAND_IMAGE}:${CONTAINER_COMMAND_TAG}" \
-		make ${COMMAND}
+		bash  -c "apt-get update && apt-get install -y clang-18 libclang-18-dev lld-18 llvm-18-dev && make ${COMMAND}"
